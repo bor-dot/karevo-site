@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0A0D12">
+  <meta name="description" content="Karevo, Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü. Ücretsiz indirin.">
+  <title>Karevo — Mac için yapay zekâ destekli video editörü</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121821'/%3E%3Cpath d='M9 8h8.2a6 6 0 0 1 0 12H13v4H9V8zm4 8.2h3.6a2.2 2.2 0 0 0 0-4.4H13v4.4z' fill='%2322B8F0'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="public/screens/onizleme.jpg">
+  <link rel="prefetch" as="image" href="public/screens/kurgu.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#icerik">İçeriğe geç</a>
+
+  <header class="nav" id="ust">
+    <div class="nav-inner">
+      <a class="brand" href="#ust">Karevo</a>
+      <nav class="nav-links" aria-label="Sayfa">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#ai">AI Asistan</a>
+        <a href="#indir">İndir</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#indir">Mac için indir</a>
+    </div>
+  </header>
+
+  <main id="icerik">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="public/screens/onizleme.jpg" alt="" width="2796" height="1626" fetchpriority="high" decoding="async">
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-line">Videonu yaz,</span>
+          <span class="hero-line grad">Karevo kursun.</span>
+        </h1>
+        <p class="lede hero-lede">Mac için yapay zekâ destekli video editörü. Arayüz Türkçe.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#indir">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+            Mac için ücretsiz indir
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#uygulama">Nasıl çalışır</a>
+        </div>
+      </div>
+      <p class="hero-note">macOS · Apple Silicon · <span>v1.0.5</span></p>
+    </section>
+
+    <section class="reveal" id="uygulama" aria-labelledby="uygulama-title">
+      <div class="reveal-pin">
+        <header class="reveal-copy">
+          <p class="eyebrow">Uygulama</p>
+          <h2 id="uygulama-title">Kurgu penceresi.</h2>
+          <p class="lede">Timeline, program monitörü ve medya havuzu.</p>
+        </header>
+        <div class="stage">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <div class="stage-window frame">
+            <img src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Karevo kurgu ekranı: medya havuzu, program monitörü ve timeline" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai" id="ai" aria-labelledby="ai-title">
+      <div class="ai-pin">
+        <div class="wrap ai-grid">
+          <div class="ai-copy">
+            <p class="eyebrow eyebrow-ai">Karevo AI</p>
+            <h2 id="ai-title">Yazın, timeline uygulasın.</h2>
+            <p class="lede">Her konuda sohbet eder. Kurgu komutlarını timeline'da uygular ve medya havuzunu görür.</p>
+            <p class="quiet">Codex, Claude ve Gemini CLI'ları veya bir API anahtarıyla çalışır.</p>
+            <p class="cmd">
+              <span class="sr-only">Medya havuzundaki videoyu ekle, sessiz yerleri kes</span>
+              <span class="cmd-prompt" aria-hidden="true">›</span>
+              <span class="cmd-text" aria-hidden="true">Medya havuzundaki videoyu ekle, sessiz yerleri kes</span><span class="caret" aria-hidden="true"></span>
+            </p>
+          </div>
+          <figure class="ai-visual">
+            <div class="ai-frame frame">
+              <img class="ai-shot-ai" src="public/screens/ai.jpg" width="2802" height="1618" alt="Karevo AI sohbet ekranı" loading="lazy" decoding="async">
+              <img class="ai-shot-edit" src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Karevo kurgu timeline'ı" loading="lazy" decoding="async">
+            </div>
+            <figcaption>Karevo AI → Kurgu</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="renk" aria-labelledby="renk-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Renk</p>
+          <h2 id="renk-title">Önce ve sonra, aynı karede.</h2>
+          <p class="lede">51 hazır .cube LUT galerisi ve LUT yoğunluğu. Renk tekerlekleri, eğriler ve node'lar. RGB Parade ve vektörskop.</p>
+        </header>
+        <div class="ba-meta" aria-hidden="true">
+          <span>Önce</span>
+          <span class="ba-meta-rule"></span>
+          <span>Sonra</span>
+        </div>
+        <div class="ba frame">
+          <img src="public/screens/renk.jpg" width="2812" height="1632" alt="Karevo renk ekranı: LUT öncesi ve sonrası, galeri ve skoplar" loading="lazy" decoding="async">
+          <div class="ba-line">
+            <span class="ba-knob">
+              <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4 3 9l4 5M11 4l4 5-4 5"/></svg>
+            </span>
+          </div>
+        </div>
+        <p class="ba-hint">
+          <span class="only-desktop">Kaydırdıkça çizgi ilerler.</span>
+          <span class="only-mobile">Çizgiyi sürükleyerek karşılaştırın.</span>
+        </p>
+        <label class="ba-range-label only-mobile">
+          <span class="sr-only">Önce ve sonra karşılaştırması</span>
+          <input class="ba-range" type="range" min="12" max="88" value="28">
+        </label>
+      </div>
+    </section>
+
+    <section class="band" id="ses" aria-labelledby="ses-title">
+      <div class="wrap audio-grid">
+        <header class="section-head section-head-tight">
+          <p class="eyebrow">Ses</p>
+          <h2 id="ses-title">Sesi yerinde ölçün.</h2>
+          <p class="lede">6 bantlı EQ, kompresör, gürültü azaltma ve ducking. LUFS normalizasyonu: YouTube −14, Podcast −16, EBU R128.</p>
+        </header>
+        <div class="audio-visual">
+          <svg class="wave wave-v" viewBox="0 0 56 180" aria-hidden="true">
+            <rect x="2" y="128" width="2.4" height="48" rx="1.2"/>
+            <rect x="6" y="96" width="2.4" height="80" rx="1.2"/>
+            <rect x="10" y="60" width="2.4" height="116" rx="1.2"/>
+            <rect x="14" y="24" width="2.4" height="152" rx="1.2"/>
+            <rect x="18" y="72" width="2.4" height="104" rx="1.2"/>
+            <rect x="22" y="110" width="2.4" height="66" rx="1.2"/>
+            <rect x="26" y="48" width="2.4" height="128" rx="1.2"/>
+            <rect x="30" y="16" width="2.4" height="160" rx="1.2"/>
+            <rect x="34" y="84" width="2.4" height="92" rx="1.2"/>
+            <rect x="38" y="122" width="2.4" height="54" rx="1.2"/>
+            <rect x="42" y="62" width="2.4" height="114" rx="1.2"/>
+            <rect x="46" y="32" width="2.4" height="144" rx="1.2"/>
+            <rect x="50" y="100" width="2.4" height="76" rx="1.2"/>
+          </svg>
+          <svg class="wave wave-h" viewBox="0 0 360 72" aria-hidden="true">
+            <rect x="4" y="28" width="10" height="40" rx="2"/>
+            <rect x="22" y="16" width="10" height="52" rx="2"/>
+            <rect x="40" y="8" width="10" height="60" rx="2"/>
+            <rect x="58" y="20" width="10" height="48" rx="2"/>
+            <rect x="76" y="12" width="10" height="56" rx="2"/>
+            <rect x="94" y="24" width="10" height="44" rx="2"/>
+            <rect x="112" y="6" width="10" height="62" rx="2"/>
+            <rect x="130" y="18" width="10" height="50" rx="2"/>
+            <rect x="148" y="10" width="10" height="58" rx="2"/>
+            <rect x="166" y="22" width="10" height="46" rx="2"/>
+            <rect x="184" y="4" width="10" height="64" rx="2"/>
+            <rect x="202" y="16" width="10" height="52" rx="2"/>
+            <rect x="220" y="26" width="10" height="42" rx="2"/>
+            <rect x="238" y="8" width="10" height="60" rx="2"/>
+            <rect x="256" y="18" width="10" height="50" rx="2"/>
+            <rect x="274" y="12" width="10" height="56" rx="2"/>
+            <rect x="292" y="22" width="10" height="46" rx="2"/>
+            <rect x="310" y="6" width="10" height="62" rx="2"/>
+            <rect x="328" y="20" width="10" height="48" rx="2"/>
+            <rect x="346" y="14" width="10" height="54" rx="2"/>
+          </svg>
+          <div class="audio-shot frame">
+            <img src="public/screens/ses.jpg" width="2814" height="1626" alt="Karevo ses ekranı: altı bantlı EQ, kompresör ve LUFS ölçümü" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="disa-aktar" aria-labelledby="export-title">
+      <div class="wrap export-grid">
+        <div class="export-shot frame">
+          <img src="public/screens/disa-aktar.jpg" width="2806" height="1618" alt="Karevo dışa aktarma ekranı: platform ön ayarları ve render kuyruğu" loading="lazy" decoding="async">
+        </div>
+        <header class="section-head section-head-tight">
+          <p class="eyebrow">Dışa Aktar</p>
+          <h2 id="export-title">Paylaşıma hazır.</h2>
+          <p class="lede">YouTube, Shorts, Reels ve TikTok ön ayarları. 4K'ya kadar. Render kuyruğu ve toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5 formatları, bulanık arka plan.</p>
+        </header>
+      </div>
+    </section>
+
+    <header class="section-head center wrap" id="ekranlar">
+      <p class="eyebrow">Ekranlar</p>
+      <h2>Altı yüzey, tek masa.</h2>
+      <p class="lede">Kurgu, renk, önizleme, ses, dışa aktarma ve AI.</p>
+    </header>
+    <section class="h-gallery" aria-label="Karevo ekran görüntüleri">
+      <div class="h-pin">
+        <p class="h-count" aria-hidden="true"><span id="hNow">01</span> / 06</p>
+        <div class="h-viewport" tabindex="0" data-lenis-prevent>
+          <div class="h-track">
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Kurgu" loading="lazy" decoding="async">
+                <span class="cap">01 · Kurgu</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/renk.jpg" width="2812" height="1632" alt="Renk" loading="lazy" decoding="async">
+                <span class="cap">02 · Renk</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/onizleme.jpg" width="2796" height="1626" alt="Önizleme" loading="lazy" decoding="async">
+                <span class="cap">03 · Önizleme</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/ses.jpg" width="2814" height="1626" alt="Ses" loading="lazy" decoding="async">
+                <span class="cap">04 · Ses</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/disa-aktar.jpg" width="2806" height="1618" alt="Dışa Aktar" loading="lazy" decoding="async">
+                <span class="cap">05 · Dışa Aktar</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/ai.jpg" width="2802" height="1618" alt="AI" loading="lazy" decoding="async">
+                <span class="cap">06 · AI</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="ozellikler" aria-labelledby="ozellik-title">
+      <div class="wrap">
+        <header class="section-head center">
+          <p class="eyebrow">Özellikler</p>
+          <h2 id="ozellik-title">Masadaki araçlar.</h2>
+        </header>
+        <div class="bento">
+          <article class="bento-card wide">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h7M13 7h7M4 12h4M10 12h10M4 17h10M16 17h4"/></svg>
+            </div>
+            <h3>Kurgu &amp; Timeline</h3>
+            <p>Çok izli timeline, kenetlenme ve geçişler. Program monitörü aynı pencerede.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 8.5V18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-6L13.5 6H5a2 2 0 0 0-2 2.5Z"/></svg>
+            </div>
+            <h3>Medya Havuzu</h3>
+            <p>Klipleri arayın, süzün ve timeline'a ekleyin. Karevo AI medya havuzunu görür.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="1.6"/><path d="M12 5v2.2M12 16.8V19M5 12h2.2M16.8 12H19"/></svg>
+            </div>
+            <h3>Renk &amp; LUT</h3>
+            <p>51 hazır .cube LUT, LUT yoğunluğu, renk tekerlekleri, eğriler, node'lar, RGB Parade ve vektörskop.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 15V9M8 18V6M12 16V8M16 19V5M20 14v-4"/></svg>
+            </div>
+            <h3>Ses Mikseri</h3>
+            <p>6 bantlı EQ, kompresör, gürültü azaltma, ducking ve LUFS normalizasyonu.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="2.4"/></svg>
+            </div>
+            <h3>Marka Kiti</h3>
+            <p>Görsel kimliğinizi projenin içinde hazır tutun.</p>
+          </article>
+          <article class="bento-card full">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 20h14"/></svg>
+            </div>
+            <div>
+              <h3>Dışa Aktarma</h3>
+              <p>YouTube, Shorts, Reels ve TikTok ön ayarları. 4K'ya kadar, render kuyruğu, toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5, bulanık arka plan.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band faq-band" aria-labelledby="sss-title">
+      <div class="wrap faq-wrap">
+        <header class="section-head center">
+          <p class="eyebrow">Sorular</p>
+          <h2 id="sss-title">Kısa cevaplar.</h2>
+        </header>
+        <div class="faq">
+          <details name="sss">
+            <summary>
+              <span>Karevo ücretsiz mi?</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-a"><p>Evet. Karevo'yu Mac için ücretsiz indirebilirsiniz.</p></div>
+          </details>
+          <details name="sss">
+            <summary>
+              <span>Hangi Mac'lerde çalışır?</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-a"><p>Apple Silicon işlemcili Mac'lerde, macOS üzerinde çalışır.</p></div>
+          </details>
+          <details name="sss">
+            <summary>
+              <span>Yapay zekâ için ne gerekir?</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-a"><p>Codex, Claude veya Gemini CLI'larından biri ya da bir API anahtarı. Karevo AI her konuda sohbet eder, kurgu komutlarını timeline'da uygular ve medya havuzunu görür.</p></div>
+          </details>
+          <details name="sss">
+            <summary>
+              <span>Arayüz Türkçe mi?</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-a"><p>Evet. Karevo'nun arayüzü Türkçe.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="close" id="indir" aria-labelledby="indir-title">
+      <div class="close-glow" aria-hidden="true"></div>
+      <div class="close-center">
+        <h2 class="grad-text" id="indir-title">Karevo'yu ücretsiz indir</h2>
+        <a class="btn btn-primary btn-lg btn-glow" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+          Mac için ücretsiz indir
+        </a>
+      </div>
+      <footer>© 2026 Karevo</footer>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
