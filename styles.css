@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@5.3.0/latin-ext-wght-normal.woff2") format("woff2");
+  src: url("fonts/geist-5.3.0-latin-ext-wght.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -12,9 +12,15 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@5.3.0/latin-wght-normal.woff2") format("woff2");
+  src: url("fonts/geist-5.3.0-latin-wght.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+/* Lenis (1.1.20) temel kuralları: ayrı bir istek yerine burada */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
 
 :root {
   --bg: #0A0D12;
@@ -283,33 +289,80 @@ h1, h2, h3 {
 
 .nav-cta { justify-self: end; padding: 10px 16px; }
 
+/* Hero görünürken menü butonu da tek vurgu rengine (mor) geçer; hero.js sınıfı yönetir */
+.nav.is-on-hero .nav-cta {
+  --grad: linear-gradient(105deg, #C4B5FD 0%, #8B5CF6 100%);
+  box-shadow: 0 10px 36px rgba(139, 92, 246, 0.3);
+}
+
+/* Hero: siyah zemin, tek vurgu rengi mor (#8B5CF6). Canvas animasyonu hero.js'te. */
 .hero {
+  --accent: #8B5CF6;
+  --accent-2: #A78BFA;
+  --grad: linear-gradient(105deg, #C4B5FD 0%, #8B5CF6 100%);
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
   place-items: center;
   overflow: hidden;
+  isolation: isolate;
+  background: #000;
   padding: calc(var(--nav-h) + 24px) 24px 88px;
 }
 
 .hero-bg,
-.hero-bg img,
+.hero-canvas,
 .hero-scrim { position: absolute; inset: 0; }
 
-.hero-bg img {
+.hero-canvas {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-  transform: scale(1.52);
-  transform-origin: center 42%;
+  display: block;
+  opacity: 0;
+  transition: opacity 1.4s ease;
 }
 
+.hero-canvas.is-on { opacity: 1; }
+
 .hero-scrim {
-  background:
-    linear-gradient(180deg, rgba(10, 13, 18, 0.92) 0%, rgba(10, 13, 18, 0.55) 16%, rgba(10, 13, 18, 0.28) 42%, rgba(10, 13, 18, 0.55) 72%, #0A0D12 100%),
-    radial-gradient(ellipse at 50% 46%, rgba(10, 13, 18, 0.05), rgba(10, 13, 18, 0.45) 72%);
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 74%, #0A0D12 100%);
+}
+
+.chip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  background: rgba(0, 0, 0, 0.78);
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.28), inset 0 0 12px rgba(139, 92, 246, 0.12);
+  color: #EDE9FE;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.chip svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  fill: none;
+  stroke: #A78BFA;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .hero-content {
@@ -319,10 +372,20 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.hero-title {
-  font-size: clamp(3.15rem, 7.6vw, 7.5rem);
-  letter-spacing: -0.055em;
+/* Çekirdek ve halka bu boşluğun ortasına oturur (hero.js ölçer) */
+.hero-orb {
+  height: clamp(150px, 30svh, 300px);
+  margin-bottom: clamp(4px, 1.5svh, 18px);
 }
+
+.hero-title {
+  font-size: clamp(3rem, 6.6vw, 6.4rem);
+  letter-spacing: -0.055em;
+  text-shadow: 0 0 28px rgba(0, 0, 0, 0.7);
+}
+
+/* Şeffaf gradyan harflerin altından gölge görünüp rengi karartmasın */
+.hero-title .char-grad { text-shadow: none; }
 
 .hero-line {
   position: relative;
@@ -336,6 +399,18 @@ h1, h2, h3 {
   will-change: transform, opacity;
 }
 
+/* Hareket azaltıldığında harflere bölünmez; satırın kendisi gradyan alır */
+.hero-line.grad.is-flat {
+  width: fit-content;
+  margin-inline: auto;
+  background-image: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
 .char-grad {
   background-image: var(--grad);
   background-repeat: no-repeat;
@@ -345,7 +420,14 @@ h1, h2, h3 {
   -webkit-text-fill-color: transparent;
 }
 
-.hero-lede { margin-inline: auto; }
+.hero-lede {
+  margin-inline: auto;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.85);
+}
+
+.hero .btn-primary { box-shadow: 0 10px 36px rgba(139, 92, 246, 0.3); }
+.hero .btn-ghost { background: rgba(0, 0, 0, 0.5); }
+.hero .btn-ghost:hover { border-color: rgba(167, 139, 250, 0.55); }
 
 .hero-actions {
   display: flex;
@@ -813,6 +895,7 @@ footer {
     width: calc(100% - 28px);
     grid-template-columns: 1fr auto;
     min-height: 64px;
+    padding-top: 10px;
   }
 
   .nav-links {
@@ -841,6 +924,8 @@ footer {
 
   .hero-title { font-size: clamp(2.7rem, 12vw, 4rem); }
   .hero-note { letter-spacing: 0.06em; font-size: 11px; }
+  .hero-orb { height: clamp(190px, 29svh, 260px); }
+  .chip { font-size: 11.5px; padding: 5px 10px 5px 8px; }
 }
 
 @media (min-width: 720px) {
@@ -961,10 +1046,7 @@ footer {
     padding-inline: 0;
   }
   .h-slide { flex-basis: auto; width: 100%; }
-  .hero-bg img {
-    transform: scale(1.5) !important;
-    transform-origin: center 42% !important;
-  }
+  .chip { display: none; }
 
   .caret { opacity: 1; }
 }
