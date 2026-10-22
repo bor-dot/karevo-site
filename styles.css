@@ -1386,3 +1386,6 @@ footer {
   .detail-split-rev { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); }
   .duo { grid-template-columns: 1.08fr 0.92fr; align-items: start; }
 }
+
+/* Ses ızgarasının içindeki ayrıntı bloğu iki sütunu da kaplar */
+.audio-grid > .detail-split { grid-column: 1 / -1; }
