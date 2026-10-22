@@ -7,9 +7,10 @@
   <meta name="theme-color" content="#0A0D12">
   <meta name="description" content="Karevo, Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü. Ücretsiz indirin.">
   <title>Karevo — Mac için yapay zekâ destekli video editörü</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121821'/%3E%3Cpath d='M9 8h8.2a6 6 0 0 1 0 12H13v4H9V8zm4 8.2h3.6a2.2 2.2 0 0 0 0-4.4H13v4.4z' fill='%2322B8F0'/%3E%3C/svg%3E">
+  <link rel="icon" href="public/brand/karevo-app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="public/brand/apple-touch-icon.png">
   <link rel="preload" as="font" type="font/woff2" href="fonts/geist-5.3.0-latin-wght.woff2" crossorigin>
-  <link rel="prefetch" as="image" href="public/screens/kurgu.jpg">
+  <link rel="prefetch" as="image" href="public/screens/kurgu.webp">
   <link rel="stylesheet" href="styles.css">
   <script>
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -22,7 +23,7 @@
 
   <header class="nav" id="ust">
     <div class="nav-inner">
-      <a class="brand" href="#ust">Karevo</a>
+      <a class="brand" href="#ust"><img src="public/brand/karevo-mark.svg" width="26" height="26" alt=""><span>Karevo</span></a>
       <nav class="nav-links" aria-label="Sayfa">
         <a href="#ozellikler">Özellikler</a>
         <a href="#ai">AI Asistan</a>
@@ -101,7 +102,7 @@
         <div class="stage">
           <div class="stage-glow" aria-hidden="true"></div>
           <div class="stage-window frame">
-            <img src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Karevo kurgu ekranı: medya havuzu, program monitörü ve timeline" loading="lazy" decoding="async">
+            <img src="public/screens/kurgu.webp" width="1920" height="1200" alt="Karevo kurgu ekranı: medya havuzu, program monitörü ve timeline" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -123,10 +124,40 @@
           </div>
           <figure class="ai-visual">
             <div class="ai-frame frame">
-              <img class="ai-shot-ai" src="public/screens/ai.jpg" width="2802" height="1618" alt="Karevo AI sohbet ekranı" loading="lazy" decoding="async">
-              <img class="ai-shot-edit" src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Karevo kurgu timeline'ı" loading="lazy" decoding="async">
+              <img class="ai-shot-ai" src="public/screens/ai.webp" width="1920" height="1200" alt="Karevo AI sohbet ekranı" loading="lazy" decoding="async">
+              <img class="ai-shot-edit" src="public/screens/kurgu.webp" width="1920" height="1200" alt="Karevo kurgu timeline'ı" loading="lazy" decoding="async">
             </div>
             <figcaption>Karevo AI → Kurgu</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="modeller" aria-labelledby="modeller-title">
+      <div class="wrap">
+        <header class="section-head center">
+          <p class="eyebrow eyebrow-ai">Modeller</p>
+          <h2 id="modeller-title">Her sağlayıcıya ayrı model.</h2>
+          <p class="lede">Claude, Codex, Gemini ve OpenCode CLI'ları ya da kendi API anahtarınız. Her sağlayıcı için modeli ayrı seçin.</p>
+        </header>
+        <figure class="detail-wide">
+          <div class="frame">
+            <img src="public/screens/d-ai.webp" width="1872" height="520" alt="Karevo AI sohbeti: sinematik renk ve geçiş uygulandı, son kurguyu geri alma düğmesi" loading="lazy" decoding="async">
+          </div>
+          <figcaption>"Renk ver, geçiş ekle." Değişiklikler canlı uygulanır ve tek tıkla geri alınır.</figcaption>
+        </figure>
+        <div class="duo">
+          <figure>
+            <div class="frame">
+              <img src="public/screens/d-model.webp" width="1600" height="787" alt="CLI girişi: ChatGPT Codex, Claude Code, Gemini ve OpenCode için model seçimi" loading="lazy" decoding="async">
+            </div>
+            <figcaption><strong>CLI girişi.</strong> Aboneliğinizle bağlanın, her CLI için model seçin.</figcaption>
+          </figure>
+          <figure>
+            <div class="frame">
+              <img src="public/screens/model-api.webp" width="1920" height="1200" alt="API anahtarı: Gemini, OpenAI, Anthropic Claude, xAI Grok ve ElevenLabs için model seçimi" loading="lazy" decoding="async">
+            </div>
+            <figcaption><strong>API anahtarı.</strong> Gemini, OpenAI, Claude, Grok ve ElevenLabs.</figcaption>
           </figure>
         </div>
       </div>
@@ -136,30 +167,18 @@
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Renk</p>
-          <h2 id="renk-title">Önce ve sonra, aynı karede.</h2>
-          <p class="lede">51 hazır .cube LUT galerisi ve LUT yoğunluğu. Renk tekerlekleri, eğriler ve node'lar. RGB Parade ve vektörskop.</p>
+          <h2 id="renk-title">Renk, sahnenin yanında.</h2>
+          <p class="lede">Renk tekerlekleri, eğriler, LUT ve node'lar. 51 hazır .cube LUT galerisi ve LUT yoğunluğu. Canlı skoplar: RGB Parade ve vektörskop.</p>
         </header>
-        <div class="ba-meta" aria-hidden="true">
-          <span>Önce</span>
-          <span class="ba-meta-rule"></span>
-          <span>Sonra</span>
+        <div class="frame color-shot">
+          <img src="public/screens/renk.webp" width="1920" height="1200" alt="Karevo renk atölyesi: program monitörü, renk tekerlekleri ve canlı skoplar" loading="lazy" decoding="async">
         </div>
-        <div class="ba frame">
-          <img src="public/screens/renk.jpg" width="2812" height="1632" alt="Karevo renk ekranı: LUT öncesi ve sonrası, galeri ve skoplar" loading="lazy" decoding="async">
-          <div class="ba-line">
-            <span class="ba-knob">
-              <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4 3 9l4 5M11 4l4 5-4 5"/></svg>
-            </span>
+        <figure class="detail-strip">
+          <div class="frame">
+            <img src="public/screens/d-renk.webp" width="1800" height="247" alt="Koyu ton, gamma, açık ton ve offset renk tekerlekleri ile temel ayarlar" loading="lazy" decoding="async">
           </div>
-        </div>
-        <p class="ba-hint">
-          <span class="only-desktop">Kaydırdıkça çizgi ilerler.</span>
-          <span class="only-mobile">Çizgiyi sürükleyerek karşılaştırın.</span>
-        </p>
-        <label class="ba-range-label only-mobile">
-          <span class="sr-only">Önce ve sonra karşılaştırması</span>
-          <input class="ba-range" type="range" min="12" max="88" value="28">
-        </label>
+          <figcaption>Koyu ton, gamma, açık ton ve offset tekerlekleri. Yanında temel ayarlar.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -209,69 +228,130 @@
             <rect x="346" y="14" width="10" height="54" rx="2"/>
           </svg>
           <div class="audio-shot frame">
-            <img src="public/screens/ses.jpg" width="2814" height="1626" alt="Karevo ses ekranı: altı bantlı EQ, kompresör ve LUFS ölçümü" loading="lazy" decoding="async">
+            <img src="public/screens/ses.webp" width="1920" height="1200" alt="Karevo ses atölyesi: altı bantlı EQ, kompresör ve LUFS ölçümü" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="detail-split">
+          <div class="frame">
+            <img src="public/screens/loudness.webp" width="552" height="576" alt="Loudness telemetrisi: entegre LUFS, true peak ve hedef standartlar" loading="lazy" decoding="async">
+          </div>
+          <div class="detail-copy">
+            <h3>Loudness telemetrisi</h3>
+            <p>ITU-R BS.1770 ölçümü: entegre LUFS ve true peak, hedef aralık üzerinde canlı gösterilir.</p>
+            <ul class="ticks">
+              <li>YouTube −14, Podcast −16 ve EBU R128 −23 hedefleri tek tıkla</li>
+              <li>6 bantlı EQ ve kompresör</li>
+              <li>Ducking ile müziği konuşmanın altına indirme</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="altyazi" aria-labelledby="altyazi-title">
+      <div class="wrap">
+        <div class="export-grid">
+          <div class="export-shot frame">
+            <img src="public/screens/altyazi.webp" width="1920" height="1200" alt="Karevo altyazı stüdyosu: kelime vurgulu altyazı ve transkript listesi" loading="lazy" decoding="async">
+          </div>
+          <header class="section-head section-head-tight">
+            <p class="eyebrow">Altyazı</p>
+            <h2 id="altyazi-title">Konuşmayı yazıya çevirir.</h2>
+            <p class="lede">Yapay zekâ ile otomatik altyazı. Whisper ile çözümleme, kelime vurgulu stil, SRT ve VTT çıktısı.</p>
+          </header>
+        </div>
+        <div class="detail-split detail-split-rev">
+          <div class="detail-copy">
+            <h3>Transkript, satır satır düzenlenir</h3>
+            <p>Her satır kendi zaman aralığıyla gelir. Metinde arayın, toplu değiştirin, satırı bölün ya da silin.</p>
+            <ul class="ticks">
+              <li>Transkript, Tipografi ve Stil, AI ve Whisper altyazı sekmeleri</li>
+              <li>Kelime vurgulu stil: o an söylenen kelime renklenir</li>
+              <li>SRT ve VTT olarak dışa aktarma</li>
+            </ul>
+          </div>
+          <div class="frame">
+            <img src="public/screens/d-altyazi.webp" width="1120" height="896" alt="Transkript sekmesi: zaman damgalı altyazı satırları, metin arama ve değiştirme" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
     </section>
 
     <section class="band" id="disa-aktar" aria-labelledby="export-title">
-      <div class="wrap export-grid">
-        <div class="export-shot frame">
-          <img src="public/screens/disa-aktar.jpg" width="2806" height="1618" alt="Karevo dışa aktarma ekranı: platform ön ayarları ve render kuyruğu" loading="lazy" decoding="async">
-        </div>
+      <div class="wrap audio-grid">
         <header class="section-head section-head-tight">
           <p class="eyebrow">Dışa Aktar</p>
           <h2 id="export-title">Paylaşıma hazır.</h2>
-          <p class="lede">YouTube, Shorts, Reels ve TikTok ön ayarları. 4K'ya kadar. Render kuyruğu ve toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5 formatları, bulanık arka plan.</p>
+          <p class="lede">YouTube, Shorts, Reels ve TikTok ön ayarları. 4K'ya kadar. 17 platform ön ayarı, render kuyruğu ve toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5 formatları, bulanık arka plan.</p>
         </header>
+        <div class="frame">
+          <img src="public/screens/disa-aktar.webp" width="1920" height="1200" alt="Karevo teslim ve dışa aktarma ekranı: platform ön ayarları ve render kuyruğu" loading="lazy" decoding="async">
+        </div>
       </div>
     </section>
 
     <header class="section-head center wrap" id="ekranlar">
       <p class="eyebrow">Ekranlar</p>
-      <h2>Altı yüzey, tek masa.</h2>
-      <p class="lede">Kurgu, renk, önizleme, ses, dışa aktarma ve AI.</p>
+      <h2>Dokuz yüzey, tek masa.</h2>
+      <p class="lede">Karşılama, kurgu, renk, ses, altyazı, dışa aktarma, Karevo AI ve model seçici.</p>
     </header>
     <section class="h-gallery" aria-label="Karevo ekran görüntüleri">
       <div class="h-pin">
-        <p class="h-count" aria-hidden="true"><span id="hNow">01</span> / 06</p>
+        <p class="h-count" aria-hidden="true"><span id="hNow">01</span> / 09</p>
         <div class="h-viewport" tabindex="0" data-lenis-prevent>
           <div class="h-track">
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/kurgu.jpg" width="2816" height="1636" alt="Kurgu" loading="lazy" decoding="async">
-                <span class="cap">01 · Kurgu</span>
+                <img src="public/screens/karsilama.webp" width="1920" height="1200" alt="Sade başlangıç ekranı" loading="lazy" decoding="async">
+                <span class="cap">01 · Karşılama</span>
               </div>
             </figure>
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/renk.jpg" width="2812" height="1632" alt="Renk" loading="lazy" decoding="async">
-                <span class="cap">02 · Renk</span>
+                <img src="public/screens/kurgu.webp" width="1920" height="1200" alt="Kurgu ve zaman çizelgesi" loading="lazy" decoding="async">
+                <span class="cap">02 · Kurgu</span>
               </div>
             </figure>
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/onizleme.jpg" width="2796" height="1626" alt="Önizleme" loading="lazy" decoding="async">
-                <span class="cap">03 · Önizleme</span>
+                <img src="public/screens/renk.webp" width="1920" height="1200" alt="Renk atölyesi" loading="lazy" decoding="async">
+                <span class="cap">03 · Renk</span>
               </div>
             </figure>
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/ses.jpg" width="2814" height="1626" alt="Ses" loading="lazy" decoding="async">
+                <img src="public/screens/ses.webp" width="1920" height="1200" alt="Ses atölyesi" loading="lazy" decoding="async">
                 <span class="cap">04 · Ses</span>
               </div>
             </figure>
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/disa-aktar.jpg" width="2806" height="1618" alt="Dışa Aktar" loading="lazy" decoding="async">
-                <span class="cap">05 · Dışa Aktar</span>
+                <img src="public/screens/altyazi.webp" width="1920" height="1200" alt="Altyazı stüdyosu" loading="lazy" decoding="async">
+                <span class="cap">05 · Altyazı</span>
               </div>
             </figure>
             <figure class="h-slide">
               <div class="frame">
-                <img src="public/screens/ai.jpg" width="2802" height="1618" alt="AI" loading="lazy" decoding="async">
-                <span class="cap">06 · AI</span>
+                <img src="public/screens/disa-aktar.webp" width="1920" height="1200" alt="Teslim ve dışa aktarma" loading="lazy" decoding="async">
+                <span class="cap">06 · Dışa Aktar</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/ai.webp" width="1920" height="1200" alt="Karevo AI sohbeti" loading="lazy" decoding="async">
+                <span class="cap">07 · Karevo AI</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/model-cli.webp" width="1920" height="1200" alt="CLI için model seçici" loading="lazy" decoding="async">
+                <span class="cap">08 · Model · CLI</span>
+              </div>
+            </figure>
+            <figure class="h-slide">
+              <div class="frame">
+                <img src="public/screens/model-api.webp" width="1920" height="1200" alt="API için model seçici" loading="lazy" decoding="async">
+                <span class="cap">09 · Model · API</span>
               </div>
             </figure>
           </div>
@@ -292,6 +372,7 @@
             </div>
             <h3>Kurgu &amp; Timeline</h3>
             <p>Çok izli timeline, kenetlenme ve geçişler. Program monitörü aynı pencerede.</p>
+            <img class="bento-img" src="public/screens/d-timeline.webp" width="1800" height="288" alt="V1 ve V2 video izleri, ses izleri ve timeline araç çubuğu" loading="lazy" decoding="async">
           </article>
           <article class="bento-card">
             <div class="icon" aria-hidden="true">
@@ -321,13 +402,34 @@
             <h3>Marka Kiti</h3>
             <p>Görsel kimliğinizi projenin içinde hazır tutun.</p>
           </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M7 14h4M13 14h4M7 10.5h6"/></svg>
+            </div>
+            <h3>Altyazı &amp; Whisper</h3>
+            <p>Otomatik altyazı, kelime vurgulu stil, transkript düzenleme. SRT ve VTT çıktısı.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 7h10M5 12h14M5 17h8"/><circle cx="18" cy="7" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>
+            </div>
+            <h3>Model Seçici</h3>
+            <p>Claude, Codex, Gemini ve OpenCode CLI'ları ile API anahtarları. Her sağlayıcıya ayrı model.</p>
+          </article>
+          <article class="bento-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4l1.8 4.6L18.5 10l-4.7 1.4L12 16l-1.8-4.6L5.5 10l4.7-1.4L12 4ZM18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"/></svg>
+            </div>
+            <h3>Geri alınabilir AI</h3>
+            <p>Karevo AI kurguyu canlı uygular. Beğenmezseniz son kurguyu tek tıkla geri alın.</p>
+          </article>
           <article class="bento-card full">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 20h14"/></svg>
             </div>
             <div>
               <h3>Dışa Aktarma</h3>
-              <p>YouTube, Shorts, Reels ve TikTok ön ayarları. 4K'ya kadar, render kuyruğu, toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5, bulanık arka plan.</p>
+              <p>17 platform ön ayarı: YouTube, Shorts, Reels ve TikTok. 4K'ya kadar, render kuyruğu, toplu sosyal medya dışa aktarma. 16:9, 9:16, 1:1 ve 4:5, bulanık arka plan.</p>
             </div>
           </article>
         </div>

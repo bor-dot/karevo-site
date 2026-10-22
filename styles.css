@@ -266,6 +266,9 @@ h1, h2, h3 {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   justify-self: start;
   font-size: 1.15rem;
   font-weight: 600;
@@ -1293,4 +1296,93 @@ footer {
 
   .caret,
   .ai-caret { opacity: 1; }
+}
+
+/* Marka işareti */
+.brand img { width: 26px; height: 26px; display: block; }
+
+/* Ekran görüntüsü ayrıntıları */
+.color-shot { margin-top: 6px; }
+
+.detail-strip,
+.detail-wide { margin: 22px 0 0; }
+
+.detail-strip figcaption,
+.detail-wide figcaption,
+.duo figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.duo figcaption strong { color: var(--text); font-weight: 600; }
+
+.detail-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin-top: clamp(2.2rem, 5vw, 4rem);
+}
+
+.detail-copy h3 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.detail-copy p { color: var(--muted); line-height: 1.55; max-width: 34rem; }
+
+.ticks {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ticks li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0.38em;
+  width: 11px;
+  height: 6px;
+  border-left: 2px solid var(--accent-2);
+  border-bottom: 2px solid var(--accent-2);
+  transform: rotate(-45deg);
+}
+
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.duo figure { margin: 0; }
+
+.bento-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 901px) {
+  .detail-split { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
+  .detail-split-rev { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); }
+  .duo { grid-template-columns: 1.08fr 0.92fr; align-items: start; }
 }

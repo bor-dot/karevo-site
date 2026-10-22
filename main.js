@@ -245,20 +245,22 @@
             anticipatePin: 1,
             onUpdate: (self) => {
               if (!hNow) return;
-              const n = Math.min(6, Math.max(1, Math.ceil(self.progress * 6) || 1));
+              const n = Math.min(9, Math.max(1, Math.ceil(self.progress * 9) || 1));
               hNow.textContent = String(n).padStart(2, "0");
             },
           },
         });
 
-        ScrollTrigger.create({
-          trigger: ".ba",
-          start: "top 75%",
-          end: "bottom 35%",
-          scrub: true,
-          onRefresh: measureBA,
-          onUpdate: (self) => setBA(0.16 + self.progress * 0.7),
-        });
+        if (ba) {
+          ScrollTrigger.create({
+            trigger: ".ba",
+            start: "top 75%",
+            end: "bottom 35%",
+            scrub: true,
+            onRefresh: measureBA,
+            onUpdate: (self) => setBA(0.16 + self.progress * 0.7),
+          });
+        }
       } else if (baRange) {
         ScrollTrigger.create({
           trigger: ".ai",

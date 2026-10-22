@@ -20,11 +20,8 @@ for (const f of files) {
 }
 for (const d of dirs) cpSync(join(root, d), join(dist, d), { recursive: true });
 
-// Ekran görüntüleri: yalnızca sitenin kullandığı .jpg dosyaları (.png kaynaklar yayına girmez)
-cpSync(join(root, "public", "screens"), join(dist, "public", "screens"), {
-  recursive: true,
-  filter: (src) => !src.endsWith(".png"),
-});
+// Ekran görüntüleri ve marka dosyaları (yalnızca web için optimize edilmiş WebP/SVG/PNG)
+cpSync(join(root, "public"), join(dist, "public"), { recursive: true });
 
 // Başvuru denetimi
 const html = readFileSync(join(dist, "index.html"), "utf8");
