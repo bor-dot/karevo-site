@@ -1,2 +1,5 @@
 stitch.html
 .DS_Store
+node_modules
+dist
+.vercel
