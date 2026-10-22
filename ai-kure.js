@@ -121,11 +121,10 @@ void main(){
   // Küre yarıçapı: nefes + üzerine gelme + ses genliği
   float R = 0.70 * (1.0 + 0.022 * uBreath + 0.04 * uHover + 0.06 * uAmp);
   // Siluetin sıvı gibi dalgalanması
-  float wob = 0.014 * sin(ang * 3.0 + t * 0.7)
-            + 0.010 * sin(ang * 5.0 - t * 1.1)
-            + 0.007 * sin(ang * 2.0 + t * 0.45);
-  wob *= 1.0 + 2.0 * uAmp;
-  wob += uAmp * 0.02 * sin(ang * 7.0 + t * 8.0) * sin(ang * 3.0 - t * 4.5);
+  float wob = 0.004 * sin(ang * 3.0 + t * 0.7)
+            + 0.003 * sin(ang * 5.0 - t * 1.1)
+            + 0.002 * sin(ang * 2.0 + t * 0.45);
+  wob *= 1.0 + 0.6 * uAmp;
   float Rw = R * (1.0 + wob);
   float dd = max(d - Rw, 0.0);
 
