@@ -126,6 +126,7 @@
       ease: "power3.out",
       stagger: 0.028,
       delay: 0.08,
+      scrollTrigger: { trigger: title, start: "top 88%", once: true },
     });
   };
 
