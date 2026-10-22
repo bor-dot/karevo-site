@@ -97,7 +97,11 @@
   };
 
   const splitHero = () => {
-    if (reduce) return;
+    if (reduce) {
+      const flat = document.querySelector(".hero-line.grad");
+      if (flat) flat.classList.add("is-flat");
+      return;
+    }
     const title = document.querySelector(".hero-title");
     title.querySelectorAll(".hero-line").forEach((line) => {
       const text = line.textContent;
@@ -123,11 +127,6 @@
       stagger: 0.028,
       delay: 0.08,
     });
-    gsap.fromTo(
-      ".hero-bg img",
-      { scale: 1.66, transformOrigin: "center 42%" },
-      { scale: 1.48, transformOrigin: "center 42%", duration: 22, ease: "power1.out" }
-    );
   };
 
   const playType = () => {
