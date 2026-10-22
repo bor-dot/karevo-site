@@ -185,7 +185,8 @@ void main(){
 
   col = min(col, vec3(1.0));
   col += (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) / 255.0;
-  gl_FragColor = vec4(col, 1.0);
+  // Önceden çarpılmış alfa: siyah alanlar şeffaf kalır, uzay arka planı görünür
+  gl_FragColor = vec4(col, max(col.r, max(col.g, col.b)));
 }`;
 
   /* ---------- durum ---------- */
@@ -237,7 +238,8 @@ void main(){
     if (gl) return glOk;
     try {
       gl = canvas.getContext("webgl", {
-        alpha: false,
+        alpha: true,
+        premultipliedAlpha: true,
         antialias: false,
         depth: false,
         stencil: false,

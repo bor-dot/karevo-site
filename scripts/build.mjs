@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 
-const files = ["index.html", "styles.css", "main.js", "ai-kure.js", ".nojekyll"];
+const files = ["index.html", "styles.css", "main.js", "ai-kure.js", "space.js", ".nojekyll"];
 const dirs = ["vendor", "fonts"];
 
 rmSync(dist, { recursive: true, force: true });
