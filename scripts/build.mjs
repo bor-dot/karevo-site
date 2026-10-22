@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 
-const files = ["index.html", "styles.css", "main.js", "hero.js", ".nojekyll"];
+const files = ["index.html", "styles.css", "main.js", "ai-kure.js", ".nojekyll"];
 const dirs = ["vendor", "fonts"];
 
 rmSync(dist, { recursive: true, force: true });
@@ -47,4 +47,4 @@ if (missing.length) {
 const external = [...refs].filter((r) => /^https?:/.test(r));
 const size = (p) => statSync(join(dist, p)).size;
 console.log(`dist/ hazır: ${refs.size} başvuru doğrulandı, ${external.length} harici istek.`);
-console.log(`index.html ${size("index.html")} B · styles.css ${size("styles.css")} B · hero.js ${size("hero.js")} B`);
+console.log(`index.html ${size("index.html")} B · styles.css ${size("styles.css")} B · ai-kure.js ${size("ai-kure.js")} B`);

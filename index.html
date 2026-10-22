@@ -8,9 +8,8 @@
   <meta name="description" content="Karevo, Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü. Ücretsiz indirin.">
   <title>Karevo — Mac için yapay zekâ destekli video editörü</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121821'/%3E%3Cpath d='M9 8h8.2a6 6 0 0 1 0 12H13v4H9V8zm4 8.2h3.6a2.2 2.2 0 0 0 0-4.4H13v4.4z' fill='%2322B8F0'/%3E%3C/svg%3E">
-  <link rel="preload" as="image" href="public/screens/onizleme.jpg">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/geist-5.3.0-latin-wght.woff2" crossorigin>
   <link rel="prefetch" as="image" href="public/screens/kurgu.jpg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.css">
   <link rel="stylesheet" href="styles.css">
   <script>
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -36,10 +35,41 @@
   <main id="icerik">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
-        <img src="public/screens/onizleme.jpg" alt="" width="2796" height="1626" fetchpriority="high" decoding="async">
         <div class="hero-scrim"></div>
       </div>
       <div class="hero-content">
+        <div class="ai-stage" data-ai-stage>
+          <button class="ai-orb" id="aiOrb" type="button" aria-expanded="false" aria-controls="aiPanel" aria-label="Karevo AI küresi. Komut yazmak için etkinleştirin.">
+            <span class="ai-orb-fallback" aria-hidden="true"></span>
+            <canvas id="aiCanvas" aria-hidden="true"></canvas>
+          </button>
+          <div class="ai-dialog">
+            <p class="ai-bubble" aria-hidden="true"><span class="ai-ghost"></span><span class="ai-typed"><span class="ai-text"></span><span class="ai-caret"></span></span></p>
+            <p class="sr-only" id="aiLive" aria-live="polite"></p>
+            <div class="ai-slot">
+              <p class="ai-hint">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l5.5 15 2.3-6.2L19 10.5 5 4Z"/></svg>
+                Küreye dokunun, bir komut yazın
+              </p>
+              <div class="ai-panel" id="aiPanel" hidden>
+                <form class="ai-form" id="aiForm" autocomplete="off">
+                  <label class="sr-only" for="aiInput">Karevo AI'a komut</label>
+                  <input id="aiInput" type="text" maxlength="120" placeholder="Örn. sessizlikleri kes" enterkeyhint="send" autocomplete="off" autocapitalize="off" spellcheck="false">
+                  <button type="submit" aria-label="Gönder">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </button>
+                </form>
+                <div class="ai-suggest">
+                  <button type="button" data-cmd="Sessizlikleri kes">Sessizlikleri kes</button>
+                  <button type="button" data-cmd="Altyazı ekle">Altyazı ekle</button>
+                  <button type="button" data-cmd="Renkleri eşle">Renkleri eşle</button>
+                  <button type="button" data-cmd="4K dışa aktar">4K dışa aktar</button>
+                </div>
+                <p class="ai-demo">Demo: hazır yanıtlar verir, gerçek bir yapay zekâya bağlı değildir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1 class="hero-title" id="hero-title">
           <span class="hero-line">Videonu yaz,</span>
           <span class="hero-line grad">Karevo kursun.</span>
@@ -351,9 +381,10 @@
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
-  <script src="main.js"></script>
+  <script src="vendor/gsap-3.12.5.min.js" defer></script>
+  <script src="vendor/ScrollTrigger-3.12.5.min.js" defer></script>
+  <script src="vendor/lenis-1.1.20.min.js" defer></script>
+  <script src="ai-kure.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
