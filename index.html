@@ -5,8 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0A0D12">
-  <meta name="description" content="Karevo, Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü. Ücretsiz indirin.">
+  <meta name="description" content="Karevo, Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü. Yazdığınız komutu timeline'da uygular. Yakında ücretsiz.">
   <title>Karevo — Mac için yapay zekâ destekli video editörü</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Karevo">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Karevo — Mac için yapay zekâ destekli video editörü">
+  <meta property="og:description" content="Videonu yaz, Karevo kursun. Türkçe arayüzlü, yapay zekâ destekli video editörü. Yakında ücretsiz.">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Karevo",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "macOS (Apple Silicon)",
+    "inLanguage": "tr",
+    "description": "Mac için yapay zekâ destekli, Türkçe arayüzlü video editörü: kurgu, renk, ses, altyazı ve dışa aktarma.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
+  }
+  </script>
   <link rel="icon" href="public/brand/karevo-app-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="public/brand/apple-touch-icon.png">
   <link rel="preload" as="font" type="font/woff2" href="fonts/geist-5.3.0-latin-wght.woff2" crossorigin>
@@ -29,16 +47,28 @@
         <a href="#ai">AI Asistan</a>
         <a href="#indir">İndir</a>
       </nav>
-      <a class="btn btn-primary nav-cta" href="#indir">Mac için indir</a>
+      <a class="btn btn-primary nav-cta" href="#indir">Yakında · Mac</a>
     </div>
   </header>
 
   <main id="icerik">
-    <section class="hero" aria-label="Karevo AI küresi">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-scrim"></div>
       </div>
       <div class="hero-content">
+        <div class="hero-copy">
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-line">Videonu yaz,</span>
+            <span class="hero-line grad">Karevo kursun.</span>
+          </h1>
+          <p class="lede hero-lede">Mac için yapay zekâ destekli video editörü. Komutunu yaz, Karevo timeline'da uygulasın. Arayüz baştan sona Türkçe.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#indir">Mac için ücretsiz · Yakında</a>
+            <a class="btn btn-ghost btn-lg" href="#uygulama">Nasıl çalışır</a>
+          </div>
+          <p class="hero-note">macOS · Apple Silicon · <span>Ücretsiz</span></p>
+        </div>
         <div class="ai-stage" data-ai-stage>
           <button class="ai-orb" id="aiOrb" type="button" aria-expanded="false" aria-controls="aiPanel" aria-label="Karevo AI küresi. Komut yazmak için etkinleştirin.">
             <span class="ai-orb-fallback" aria-hidden="true"></span>
@@ -74,24 +104,6 @@
       </div>
     </section>
 
-    <section class="intro" aria-labelledby="hero-title">
-      <div class="intro-inner">
-        <h1 class="hero-title" id="hero-title">
-          <span class="hero-line">Videonu yaz,</span>
-          <span class="hero-line grad">Karevo kursun.</span>
-        </h1>
-        <p class="lede hero-lede">Mac için yapay zekâ destekli video editörü. Arayüz Türkçe.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#indir">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
-            Mac için ücretsiz indir
-          </a>
-          <a class="btn btn-ghost btn-lg" href="#uygulama">Nasıl çalışır</a>
-        </div>
-        <p class="hero-note">macOS · Apple Silicon · <span>v1.0.5</span></p>
-      </div>
-    </section>
-
     <section class="reveal" id="uygulama" aria-labelledby="uygulama-title">
       <div class="reveal-pin">
         <header class="reveal-copy">
@@ -112,7 +124,7 @@
       <div class="ai-pin">
         <div class="wrap ai-grid">
           <div class="ai-copy">
-            <p class="eyebrow eyebrow-ai">Karevo AI</p>
+            <p class="eyebrow">Karevo AI</p>
             <h2 id="ai-title">Yazın, timeline uygulasın.</h2>
             <p class="lede">Her konuda sohbet eder. Kurgu komutlarını timeline'da uygular ve medya havuzunu görür.</p>
             <p class="quiet">Codex, Claude ve Gemini CLI'ları veya bir API anahtarıyla çalışır.</p>
@@ -136,7 +148,7 @@
     <section class="band" id="modeller" aria-labelledby="modeller-title">
       <div class="wrap">
         <header class="section-head center">
-          <p class="eyebrow eyebrow-ai">Modeller</p>
+          <p class="eyebrow">Modeller</p>
           <h2 id="modeller-title">Her sağlayıcıya ayrı model.</h2>
           <p class="lede">Claude, Codex, Gemini ve OpenCode CLI'ları ya da kendi API anahtarınız. Her sağlayıcı için modeli ayrı seçin.</p>
         </header>
@@ -290,12 +302,13 @@
       </div>
     </section>
 
-    <header class="section-head center wrap" id="ekranlar">
+    <section id="ekranlar" aria-labelledby="ekranlar-title">
+    <header class="section-head center wrap">
       <p class="eyebrow">Ekranlar</p>
-      <h2>Dokuz yüzey, tek masa.</h2>
+      <h2 id="ekranlar-title">Dokuz yüzey, tek masa.</h2>
       <p class="lede">Karşılama, kurgu, renk, ses, altyazı, dışa aktarma, Karevo AI ve model seçici.</p>
     </header>
-    <section class="h-gallery" aria-label="Karevo ekran görüntüleri">
+    <div class="h-gallery" role="region" aria-label="Karevo ekran görüntüleri">
       <div class="h-pin">
         <p class="h-count" aria-hidden="true"><span id="hNow">01</span> / 09</p>
         <div class="h-viewport" tabindex="0" data-lenis-prevent>
@@ -357,6 +370,7 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
 
     <section class="band" id="ozellikler" aria-labelledby="ozellik-title">
@@ -478,11 +492,9 @@
     <section class="close" id="indir" aria-labelledby="indir-title">
       <div class="close-glow" aria-hidden="true"></div>
       <div class="close-center">
-        <h2 class="grad-text" id="indir-title">Karevo'yu ücretsiz indir</h2>
-        <span class="btn btn-primary btn-lg btn-glow" aria-disabled="true" style="cursor:default;opacity:.85">
-          Yakında · Mac için ücretsiz
-        </span>
-        <p style="margin-top:14px;color:#9AA7B4;font-size:14px">İndirme bağlantısı çok yakında burada olacak.</p>
+        <h2 class="grad-text" id="indir-title">Karevo çok yakında Mac'te.</h2>
+        <p class="soon-badge btn-glow">Yakında · Mac için ücretsiz</p>
+        <p class="close-note">İndirme bağlantısı yayın günü bu sayfada olacak.</p>
       </div>
       <footer>© 2026 Karevo</footer>
     </section>

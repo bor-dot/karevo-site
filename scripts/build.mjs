@@ -1,13 +1,14 @@
 // Bağımlılıksız statik derleme: yayına girecek dosyaları dist/ klasörüne kopyalar
 // ve index.html'in başvurduğu her yerel dosyanın gerçekten var olduğunu doğrular.
-import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 
-const files = ["index.html", "styles.css", "main.js", "ai-kure.js", "space.js", ".nojekyll"];
+const files = ["index.html", "404.html", "styles.css", "main.js", "ai-kure.js", "space.js", ".nojekyll"];
 const dirs = ["vendor", "fonts"];
 
 rmSync(dist, { recursive: true, force: true });
@@ -22,6 +23,14 @@ for (const d of dirs) cpSync(join(root, d), join(dist, d), { recursive: true });
 
 // Ekran görüntüleri ve marka dosyaları (yalnızca web için optimize edilmiş WebP/SVG/PNG)
 cpSync(join(root, "public"), join(dist, "public"), { recursive: true });
+
+// Önbellek kırma: ?v= değerini dosya içeriğinin özetinden üret (elle güncellemeye gerek yok)
+let page = readFileSync(join(dist, "index.html"), "utf8");
+for (const f of ["styles.css", "main.js", "ai-kure.js", "space.js"]) {
+  const hash = createHash("sha1").update(readFileSync(join(dist, f))).digest("hex").slice(0, 8);
+  page = page.replaceAll(new RegExp(`${f.replace(".", "\\.")}(\\?v=[^"]*)?"`, "g"), `${f}?v=${hash}"`);
+}
+writeFileSync(join(dist, "index.html"), page);
 
 // Başvuru denetimi
 const html = readFileSync(join(dist, "index.html"), "utf8");

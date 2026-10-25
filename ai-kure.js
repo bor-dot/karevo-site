@@ -1,6 +1,6 @@
 /*
  * Karevo AI küresi (hero)
- * - Ham WebGL (kütüphanesiz): sıvı/plazma gibi akan, mor tonlu parlayan küre
+ * - Ham WebGL (kütüphanesiz): sıvı/plazma gibi akan, camgöbeği tonlu parlayan küre
  * - Küre "konuşur": altındaki balonlarda mesajlar daktilo gibi yazılır; yazı
  *   sürerken küre ses dalgası gibi büyüyüp küçülür, susunca yavaşça nefes alır
  * - Küreye tıklayınca komut yazılır, küre hazır yanıtlardan biriyle cevap verir
@@ -26,7 +26,6 @@
   const form = stage.querySelector("#aiForm");
   const input = stage.querySelector("#aiInput");
   const hero = stage.closest(".hero");
-  const nav = document.querySelector(".nav");
 
   const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
   const compactMq = window.matchMedia("(max-width: 900px), (pointer: coarse)");
@@ -128,11 +127,11 @@ void main(){
   float Rw = R * (1.0 + wob);
   float dd = max(d - Rw, 0.0);
 
-  vec3 mid  = vec3(0.545, 0.361, 0.965);   // #8B5CF6
-  vec3 lite = vec3(0.769, 0.710, 0.992);   // #C4B5FD
-  vec3 vio  = vec3(0.400, 0.180, 0.850);   // koyu doygun mor
-  vec3 deep = vec3(0.050, 0.010, 0.160);
-  vec3 hot  = vec3(0.965, 0.950, 1.000);
+  vec3 mid  = vec3(0.133, 0.722, 0.941);   // #22B8F0 (marka camgöbeği)
+  vec3 lite = vec3(0.647, 0.914, 1.000);   // #A5E9FF
+  vec3 vio  = vec3(0.043, 0.498, 0.690);   // #0B7FB0 koyu camgöbeği
+  vec3 deep = vec3(0.004, 0.050, 0.110);
+  vec3 hot  = vec3(0.930, 0.990, 1.000);
 
   // Dış ışıma
   float g = exp(-dd * 4.0) * 0.50 * (0.75 + 0.25 * uBreath + 0.55 * uAmp + 0.25 * uHover);
@@ -164,7 +163,7 @@ void main(){
     float v = 1.0 - abs(2.0 * f - 1.0);
 #endif
 
-    // Koyu doygun mordan #8B5CF6'ya; yalnızca en parlak yerlerde açık ton
+    // Koyu camgöbeğinden #22B8F0'a; yalnızca en parlak yerlerde açık ton
     vec3 c = mix(deep, vio, smoothstep(0.05, 0.42, f));
     c = mix(c, mid, smoothstep(0.35, 0.78, f));
     c = mix(c, lite, smoothstep(0.80, 1.0, f) * 0.55);
@@ -173,8 +172,9 @@ void main(){
     c += hot * pow(v, 26.0) * (0.30 + 0.6 * uAmp);
 
     float fres = pow(1.0 - n.z, 2.2);
-    c += mid * fres * (1.1 + 0.6 * uAmp) + lite * pow(1.0 - n.z, 4.5) * 0.45;
-    c *= 0.55 + 0.6 * n.z;
+    c += mid * fres * (0.85 + 0.6 * uAmp) + lite * pow(1.0 - n.z, 4.5) * 0.4;
+    // Camgöbeği mordan çok daha parlak algılanır; gövdeyi biraz karart
+    c *= (0.55 + 0.6 * n.z) * 0.8;
     c += mid * pow(n.z, 5.0) * 0.18 * (1.0 + 2.0 * uAmp);
 
     vec3 L = normalize(vec3(-0.45 + uMouse.x * 0.3, 0.55 + uMouse.y * 0.3, 0.75));
@@ -655,16 +655,6 @@ void main(){
       },
       { threshold: 0 }
     ).observe(hero);
-
-    // Hero menünün altında kaldığı sürece menü butonu mor olur
-    if (nav) {
-      new IntersectionObserver(
-        (entries) => {
-          nav.classList.toggle("is-on-hero", entries[entries.length - 1].isIntersecting);
-        },
-        { rootMargin: `-${nav.offsetHeight || 72}px 0px 0px 0px`, threshold: 0 }
-      ).observe(hero);
-    }
   }
 
   document.addEventListener("visibilitychange", sync);

@@ -41,6 +41,30 @@
     const small = W < 700;
     seed = 20261022;
 
+    // Bulutsu kürenin bulunduğu yeri boş bırakır: küre masaüstünde sağda, mobilde altta
+    const orbEl = hero.querySelector(".ai-orb");
+    const copyEl = hero.querySelector(".hero-copy");
+    const hr = hero.getBoundingClientRect();
+    let ocx = 0, ocy = 0;
+    if (orbEl) {
+      const or = orbEl.getBoundingClientRect();
+      ocx = (or.left + or.width / 2 - hr.left) / W - 0.5;
+      ocy = (or.top + or.height / 2 - hr.top) / H - 0.5;
+    }
+    // Başlık ve metnin arkasında bulutsu sönükleşir, yazı okunur kalsın
+    let cx0 = 2, cx1 = 2, cy0 = 2, cy1 = 2;
+    if (copyEl) {
+      const cr = copyEl.getBoundingClientRect();
+      cx0 = (cr.left - hr.left) / W; cx1 = (cr.right - hr.left) / W;
+      cy0 = (cr.top - hr.top) / H; cy1 = (cr.bottom - hr.top) / H;
+    }
+    const pad = 0.08;
+    const textDim = (u, v) => {
+      const dx = Math.max(cx0 - u, 0, u - cx1), dy = Math.max(cy0 - v, 0, v - cy1);
+      const t = Math.min(1, Math.hypot(dx, dy) / pad);
+      return 0.22 + 0.78 * sm(t);
+    };
+
     // 1) Bulutsu: düşük çözünürlükte hesapla, büyütünce yumuşak sis olur
     const nw = small ? 72 : 120, nh = Math.max(60, Math.round(nw * H / W));
     const neb = document.createElement("canvas");
@@ -58,17 +82,17 @@
         // Samanyolu şeridi: köşegen, yumuşak
         const band = Math.exp(-Math.pow((px * 0.55 + py * 0.83 + 0.06) / 0.2, 2));
         // merkez (küre) çevresini boş bırak
-        const r = Math.hypot(px / (W / H) * 1.15, py * 1.0);
+        const r = Math.hypot((u - 0.5 - ocx) * 1.15, v - 0.5 - ocy);
         const kt = Math.min(1, Math.max(0, (r - 0.08) / 0.55));
-        const keep = 0.1 + 0.9 * sm(kt);
+        const keep = (0.1 + 0.9 * sm(kt)) * textDim(u, v);
         let a = Math.max(0, n1 - 0.36) * 3.4 * (0.3 + band * 1.5) * keep;
         let b = Math.max(0, n2 - 0.44) * 3.0 * keep * (0.4 + band * 1.1);
         const i = (y * nw + x) * 4;
-        // mor/magenta (a) + mavi/camgöbeği (b) + soluk sıcak toz
+        // Tek renk ailesi: derin camgöbeği (a) + parlak camgöbeği (b) + soğuk gri toz
         const dust = Math.max(0, fbm(u * 4 + 90, v * 4 + 30) - 0.5) * band * keep * 3.0;
-        let R = 150 * a + 40 * b + 210 * dust;
-        let Gc = 60 * a + 110 * b + 120 * dust;
-        let B = 235 * a + 230 * b + 90 * dust;
+        let R = 14 * a + 30 * b + 120 * dust;
+        let Gc = 92 * a + 170 * b + 135 * dust;
+        let B = 175 * a + 240 * b + 180 * dust;
         const lum = Math.min(1, a * 0.9 + b * 0.8 + dust * 0.6);
         img.data[i] = Math.min(255, R);
         img.data[i + 1] = Math.min(255, Gc);

@@ -6,9 +6,6 @@
 
   const nav = document.querySelector(".nav");
   const cmdEl = document.querySelector(".cmd-text");
-  const ba = document.querySelector(".ba");
-  const baLine = document.querySelector(".ba-line");
-  const baRange = document.querySelector(".ba-range");
   const hNow = document.getElementById("hNow");
   let lenis = null;
 
@@ -73,18 +70,6 @@
 
   let ctx = null;
   let typeGen = 0;
-  let baW = 0;
-
-  const measureBA = () => {
-    if (ba) baW = ba.getBoundingClientRect().width;
-  };
-
-  const setBA = (progress) => {
-    const p = Math.min(0.9, Math.max(0.1, progress));
-    if (!baW) measureBA();
-    if (baLine) baLine.style.transform = `translate3d(${p * baW}px,0,0)`;
-    if (baRange && document.activeElement !== baRange) baRange.value = String(Math.round(p * 100));
-  };
 
   const paintGradient = () => {
     const line = document.querySelector(".hero-line.grad");
@@ -164,11 +149,9 @@
     if (ctx) ctx.revert();
     typeGen += 1;
     mountLenis();
-    measureBA();
 
     if (reduce) {
       if (cmdEl) cmdEl.textContent = CMD;
-      setBA(0.5);
       return;
     }
 
@@ -250,25 +233,13 @@
             },
           },
         });
-
-        if (ba) {
-          ScrollTrigger.create({
-            trigger: ".ba",
-            start: "top 75%",
-            end: "bottom 35%",
-            scrub: true,
-            onRefresh: measureBA,
-            onUpdate: (self) => setBA(0.16 + self.progress * 0.7),
-          });
-        }
-      } else if (baRange) {
+      } else {
         ScrollTrigger.create({
           trigger: ".ai",
           start: "top 75%",
           once: true,
           onEnter: playType,
         });
-        setBA(Number(baRange.value) / 100);
       }
 
       gsap.utils.toArray(".bento-card, .export-shot").forEach((card) => {
@@ -288,23 +259,11 @@
     });
   };
 
-  if (baRange) {
-    baRange.addEventListener("input", () => {
-      measureBA();
-      setBA(Number(baRange.value) / 100);
-    });
-  }
-
   splitHero();
   build();
-  measureBA();
-  setBA(mobile() && baRange ? Number(baRange.value) / 100 : 0.2);
 
   mobileMq.addEventListener("change", build);
-  window.addEventListener("resize", () => {
-    measureBA();
-    paintGradient();
-  }, { passive: true });
+  window.addEventListener("resize", paintGradient, { passive: true });
 
   const refresh = () => ScrollTrigger.refresh();
   window.addEventListener("load", refresh);
