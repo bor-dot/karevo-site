@@ -88,11 +88,11 @@
         let a = Math.max(0, n1 - 0.36) * 3.4 * (0.3 + band * 1.5) * keep;
         let b = Math.max(0, n2 - 0.44) * 3.0 * keep * (0.4 + band * 1.1);
         const i = (y * nw + x) * 4;
-        // Tek renk ailesi: derin camgöbeği (a) + parlak camgöbeği (b) + soğuk gri toz
+        // Tek renk ailesi: derin mor (a) + açık lavanta (b) + soluk mor-gri toz
         const dust = Math.max(0, fbm(u * 4 + 90, v * 4 + 30) - 0.5) * band * keep * 3.0;
-        let R = 14 * a + 30 * b + 120 * dust;
-        let Gc = 92 * a + 170 * b + 135 * dust;
-        let B = 175 * a + 240 * b + 180 * dust;
+        let R = 120 * a + 150 * b + 140 * dust;
+        let Gc = 50 * a + 120 * b + 125 * dust;
+        let B = 225 * a + 245 * b + 175 * dust;
         const lum = Math.min(1, a * 0.9 + b * 0.8 + dust * 0.6);
         img.data[i] = Math.min(255, R);
         img.data[i + 1] = Math.min(255, Gc);
